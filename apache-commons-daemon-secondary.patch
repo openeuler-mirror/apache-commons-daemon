@@ -1,0 +1,60 @@
+--- commons-daemon-1.0.15-src/src/native/unix/configure.secondary	2017-08-23 12:52:35.697817597 +0200
++++ commons-daemon-1.0.15-src/src/native/unix/configure	2017-08-23 12:53:15.313367933 +0200
+@@ -2611,8 +2611,16 @@ echo "$as_me: error: Unsupported operati
+   esac
+   case $host_cpu in
+   powerpc)
+-    CFLAGS="$CFLAGS -DCPU=\\\"$host_cpu\\\""
+-    HOST_CPU=$host_cpu
++    CFLAGS="$CFLAGS -DCPU=\\\"ppc\\\""
++    HOST_CPU=ppc
++    ;;
++  powerpc64)
++    CFLAGS="$CFLAGS -DCPU=\\\"ppc64\\\""
++    HOST_CPU=ppc64
++    ;;
++  powerpc64le)
++    CFLAGS="$CFLAGS -DCPU=\\\"ppc64le\\\""
++    HOST_CPU=ppc64le
+     ;;
+   sparc*)
+     CFLAGS="$CFLAGS -DCPU=\\\"$host_cpu\\\""
+@@ -2687,7 +2695,7 @@ echo "$as_me: error: Unsupported operati
+         HOST_CPU=ia64
+     fi
+     ;;
+-  s390)
++  s390 | s390x)
+     CFLAGS="$CFLAGS -DCPU=\\\"s390\\\""
+     supported_os="s390"
+     HOST_CPU=s390
+--- commons-daemon-1.0.15-src/src/native/unix/support/apsupport.m4.secondary	2013-03-27 09:09:02.000000000 +0100
++++ commons-daemon-1.0.15-src/src/native/unix/support/apsupport.m4	2017-08-23 12:53:01.391525956 +0200
+@@ -80,8 +80,16 @@ AC_DEFUN(AP_SUPPORTED_HOST,[
+   esac
+   case $host_cpu in
+   powerpc)
+-    CFLAGS="$CFLAGS -DCPU=\\\"$host_cpu\\\""
+-    HOST_CPU=$host_cpu
++    CFLAGS="$CFLAGS -DCPU=\\\"ppc\\\""
++    HOST_CPU=ppc
++    ;;
++  powerpc64)
++    CFLAGS="$CFLAGS -DCPU=\\\"ppc64\\\""
++    HOST_CPU=ppc64
++    ;;
++  powerpc64le)
++    CFLAGS="$CFLAGS -DCPU=\\\"ppc64le\\\""
++    HOST_CPU=ppc64le
+     ;;
+   sparc*)
+     CFLAGS="$CFLAGS -DCPU=\\\"$host_cpu\\\""
+@@ -156,7 +164,7 @@ AC_DEFUN(AP_SUPPORTED_HOST,[
+         HOST_CPU=ia64
+     fi
+     ;;
+-  s390)
++  s390 | s390x)
+     CFLAGS="$CFLAGS -DCPU=\\\"s390\\\""
+     supported_os="s390"
+     HOST_CPU=s390
