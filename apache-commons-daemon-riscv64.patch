@@ -1,0 +1,30 @@
+wangyangdahai<admin@you2.top>
+
+diff -ur a/src/native/unix/configure b/src/native/unix/configure
+--- a/src/native/unix/configure	2022-03-05 13:49:12.608574592 +0800
++++ b/src/native/unix/configure	2022-03-05 21:29:57.226826294 +0800
+@@ -2701,6 +2701,10 @@
+     CFLAGS="$CFLAGS -DCPU=\\\"aarch64\\\""
+     supported_os="aarch64"
+     HOST_CPU=aarch64;;
++  riscv64)
++    CFLAGS="$CFLAGS -DCPU=\\\"riscv64\\\""
++    HOST_CPU=riscv64
++    ;;
+   *)
+     echo "$as_me:$LINENO: result: failed" >&5
+ echo "${ECHO_T}failed" >&6
+diff -ur a/src/native/unix/support/apsupport.m4 b/src/native/unix/support/apsupport.m4
+--- a/src/native/unix/support/apsupport.m4	2022-03-05 13:49:10.788564533 +0800
++++ b/src/native/unix/support/apsupport.m4	2022-03-05 21:30:06.706911703 +0800
+@@ -170,6 +170,10 @@
+     CFLAGS="$CFLAGS -DCPU=\\\"aarch64\\\""
+     supported_os="aarch64"
+     HOST_CPU=aarch64;;
++  riscv64)
++    CFLAGS="$CFLAGS -DCPU=\\\"riscv64\\\""
++    HOST_CPU=riscv64
++    ;;
+   *)
+     AC_MSG_RESULT([failed])
+     AC_MSG_ERROR([Unsupported CPU architecture "$host_cpu"]);;

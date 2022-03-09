@@ -1,6 +1,6 @@
 Name:              apache-commons-daemon
 Version:           1.0.15
-Release:           19
+Release:           20
 Summary:           Defines API to support an alternative invocation mechanism
 License:           ASL 2.0
 URL:               http://commons.apache.org/daemon
@@ -13,6 +13,7 @@ Obsoletes:         apache-commons-daemon-jsvc < %{version}-%{release}
 Patch0001:         apache-commons-daemon-JAVA_OS.patch
 Patch0002:         apache-commons-daemon-secondary.patch
 Patch0003:         apache-commons-daemon-aarch64.patch
+Patch0004:         apache-commons-daemon-riscv64.patch
 
 %description
 The scope of this package is to define an API in line with the current Java Platform APIs to support
@@ -62,5 +63,8 @@ install -Dpm 644 src/native/unix/jsvc.1 $RPM_BUILD_ROOT%{_mandir}/man1/jsvc.1
 %{_mandir}/man1/jsvc.1*
 
 %changelog
+* Wed Mar 9 2022 wangyangdahai<admin@you2.top> - 1.0.15-20
+- fix riscv64 target
+
 * Mon Dec 2 2019 liujing<liujing144@huawei.com> - 1.0.15-19
 - Package init
